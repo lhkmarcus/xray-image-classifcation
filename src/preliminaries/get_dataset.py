@@ -1,12 +1,11 @@
 import tensorflow as tf
-from src.config_paths import RAW_DATA_PATH
 
-def get_dataset(
-        directory=RAW_DATA_PATH,
-        batch_size=32, 
-        image_size=(300, 300), 
-        subset=None):
-    dataset = tf.keras.utils.image_dataset_from_directory(
+IMG_DIR = "..\\data\\images\\chest_xray"
+BATCH_SIZE = 32
+IMAGE_SIZE = (300, 300)
+
+def get_dataset(directory=IMG_DIR, batch_size=32, image_size=(300, 300), subset="training"):
+    return tf.keras.utils.image_dataset_from_directory(
         directory=directory,
         labels="inferred",
         label_mode="int",
@@ -18,4 +17,8 @@ def get_dataset(
         validation_split=0.1,
         subset=subset,
     )
-    return dataset
+
+def train_valid_split():
+    train_ds = get_dataset()
+    valid_ds = get_dataset(subset="validation")
+    return (train_ds, valid_ds)

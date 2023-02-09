@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
+from tensorflow.python.keras import layers
 
 ### VGG16 Model Architecture ###
 ## CNN BLock class for basic convolutional layer
@@ -71,4 +71,4 @@ class vggModel(keras.Model):
     ## Graph function to overwrite call method for plotting output shapes
     def graph(self):
         inputs = tf.keras.Input(shape=(300, 300, 1))
-        return keras.Model(inputs, self.call(inputs), name="vgg_16")
+        return keras.Model(inputs, self.call(inputs), name="vgg16")

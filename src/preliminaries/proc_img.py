@@ -8,9 +8,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 import matplotlib
 import sort_img
 import tensorflow as tf
-import matplotlib_inline
 import matplotlib.pyplot as plt
-from src.config_paths import RAW_DATA_PATH, PROC_DATA_PATH
 
 ## Sort images
 sort_img.main(
